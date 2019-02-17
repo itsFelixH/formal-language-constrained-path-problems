@@ -2,6 +2,9 @@ import networkx as nx
 import matplotlib.pyplot as plt
 import time
 import math
+import random
+import os
+import common
 from FAdo.reex import *
 from FAdo.cfg import *
 from FAdo.fa import *
@@ -47,7 +50,7 @@ ask_user_choice = False
 
 
 if ask_user_choice:
-    print '''Formal Language Constrained Path Problems
+    print('''Formal Language Constrained Path Problems
 
 
     Press a button.
@@ -61,9 +64,9 @@ if ask_user_choice:
     g) k similar path on NY
     h) CFG-ShP
 
-    '''
+    ''')
 
-    choice=raw_input('Your choice: ')
+    choice = input('Your choice: ')
 
 
 if choice == "a":
@@ -79,14 +82,14 @@ if choice == "a":
 
     if user_input:
         while True:
-            m = raw_input('Enter the number of rows of the grid: ')
+            m = input('Enter the number of rows of the grid: ')
             try:
                 m = int(m)
             except ValueError:
                 continue
             break
         while True:
-            n = raw_input('Enter the number of columns of the grid: ')
+            n = input('Enter the number of columns of the grid: ')
             try:
                 n = int(n)
             except ValueError:
@@ -116,7 +119,7 @@ elif choice == "b":
 
     if user_input:
         while True:
-            n = raw_input('How many nodes do you want to be generated?: ')
+            n = input('How many nodes do you want to be generated?: ')
             try:
                 n = int(n)
             except ValueError:
@@ -179,22 +182,22 @@ elif choice == "b":
         plt.show()
 
     if print_results:
-        print 'ShP on DAG'
-        print ''
-        print 'The graph G has ' + str(G.number_of_nodes()) + ' nodes and ' + str(G.number_of_edges()) + ' edges.'
-        print ''
-        print 'The shortest path has cost ' + str(dist[target])
+        print('ShP on DAG')
+        print('')
+        print('The graph G has ' + str(G.number_of_nodes()) + ' nodes and ' + str(G.number_of_edges()) + ' edges.')
+        print('')
+        print('The shortest path has cost ' + str(dist[target]))
         if dist[target] == expected_dist and path == expected_path:
-            print 'The solution is correct'
+            print('The solution is correct')
         else:
-            print 'The solution is NOT correct'
-            print 'The right solution is ' + str(expected_dist)
-        print ''
-        print 'Times:'
-        print 'Time to generate random grid: ' + str(t2-t1) + 's'
-        print 'Time to calculate shortest path: ' + str(t4-t3) + 's'
+            print('The solution is NOT correct')
+            print('The right solution is ' + str(expected_dist))
+        print('')
+        print('Times:')
+        print('Time to generate random grid: ' + str(t2-t1) + 's')
+        print('Time to calculate shortest path: ' + str(t4-t3) + 's')
         if show_plot:
-            print 'Time to draw plot: ' + str(t6-t5) + 's'
+            print('Time to draw plot: ' + str(t6-t5) + 's')
 
 
 elif choice == "c":
@@ -209,7 +212,7 @@ elif choice == "c":
 
     if user_input:
         while True:
-            n = raw_input('How many edges do you want to be generated?: ')
+            n = input('How many edges do you want to be generated?: ')
             try:
                 n = int(n)
             except ValueError:
@@ -260,20 +263,20 @@ elif choice == "c":
         plt.show()
 
     if print_results:
-        print 'ShP on SPG'
-        print ''
-        print 'The graph G has ' + str(G.number_of_nodes()) + ' nodes and ' + str(G.number_of_edges()) + ' edges.'
-        print ''
-        print 'The shortest path has cost ' + str(dist)
+        print('ShP on SPG')
+        print('')
+        print('The graph G has ' + str(G.number_of_nodes()) + ' nodes and ' + str(G.number_of_edges()) + ' edges.')
+        print('')
+        print('The shortest path has cost ' + str(dist))
         if dist == expected_dist and path == expected_path:
-            print 'The solution is correct'
+            print('The solution is correct')
         else:
-            print 'The solution is NOT correct'
-            print 'The right solution is ' + str(expected_dist)
-        print ''
-        print 'Time to calculate shortest path: ' + str(t2-t1) + 's'
+            print('The solution is NOT correct')
+            print('The right solution is ' + str(expected_dist))
+        print('')
+        print('Time to calculate shortest path: ' + str(t2-t1) + 's')
         if show_plot:
-            print 'Time to draw plot: ' + str(t4 - t3) + 's'
+            print('Time to draw plot: ' + str(t4 - t3) + 's')
 
 
 elif choice == "d":
@@ -291,14 +294,14 @@ elif choice == "d":
 
     if user_input:
         while True:
-            m = raw_input('Enter the number of rows: ')
+            m = input('Enter the number of rows: ')
             try:
                 m = int(m)
             except ValueError:
                 continue
             break
         while True:
-            n = raw_input('Enter the number of columns: ')
+            n = input('Enter the number of columns: ')
             try:
                 n = int(n)
             except ValueError:
@@ -382,30 +385,30 @@ elif choice == "d":
                 plt.show()
 
         if print_results:
-            print 'REG-ShP on Grid'
-            print ''
-            print 'The graph G has ' + str(G.number_of_nodes()) + ' nodes and ' + str(G.number_of_edges()) + ' edges.'
-            print ''
-            print 'Shortest Path has cost ' + str(dist_sp)
-            print 'REG-constrained Path has cost ' + str(dist) + ' with label: ' + word
-            print ''
+            print('REG-ShP on Grid')
+            print('')
+            print('The graph G has ' + str(G.number_of_nodes()) + ' nodes and ' + str(G.number_of_edges()) + ' edges.')
+            print('')
+            print('Shortest Path has cost ' + str(dist_sp))
+            print('REG-constrained Path has cost ' + str(dist) + ' with label: ' + word)
+            print('')
             if regex.evalWordP(word):
-                print 'The word has been accepted by the regular expression ' + string + '.'
+                print('The word has been accepted by the regular expression ' + string + '.')
             else:
-                print 'The word has NOT been accepted by the regular expression ' + string + '.'
-            print ''
-            print 'Times: '
-            print 'Time to generate random grid: ' + str(times['generate_graph']) + 's'
-            print 'Time to convert regular expression to NFA M(R): ' + str(times['regex_to_nfa']) + 's'
-            print 'Time to setup pointers for outgoing edges: ' + str(times['setup_pointers']) + 's'
-            print 'Time to calculate REG-constrained path: ' + str(times['calculate_path']) + 's'
-            print 'Time to calculate shortest path: ' + str(times['shortest_path']) + 's'
-            print 'Overall: ' + str(sum(times.values())) + 's'
+                print('The word has NOT been accepted by the regular expression ' + string + '.')
+            print('')
+            print('Times: ')
+            print('Time to generate random grid: ' + str(times['generate_graph']) + 's')
+            print('Time to convert regular expression to NFA M(R): ' + str(times['regex_to_nfa']) + 's')
+            print('Time to setup pointers for outgoing edges: ' + str(times['setup_pointers']) + 's')
+            print('Time to calculate REG-constrained path: ' + str(times['calculate_path']) + 's')
+            print('Time to calculate shortest path: ' + str(times['shortest_path']) + 's')
+            print('Overall: ' + str(sum(times.values())) + 's')
             if show_plot:
-                print 'Time to draw plot: ' + str(times['draw_plot']) + 's'
+                print('Time to draw plot: ' + str(times['draw_plot']) + 's')
 
     except nx.NetworkXNoPath:
-        print "No path between %s and %s." % (source, target)
+        print('No path between %s and %s.' % (source, target))
 
 elif choice == "e":
     # Variables
@@ -501,30 +504,30 @@ elif choice == "e":
                 plt.show()
 
         if print_results:
-            print 'REG-ShP on NY'
-            print ''
-            print 'The graph has ' + str(G.number_of_nodes()) + ' nodes and ' + str(G.number_of_edges()) + ' edges.'
-            print ''
-            print 'Shortest Path has cost ' + str(dist_sp)
-            print 'REG-constrained Path has cost ' + str(dist) + ' with label: ' + word
-            print ''
+            print('REG-ShP on NY')
+            print('')
+            print('The graph has ' + str(G.number_of_nodes()) + ' nodes and ' + str(G.number_of_edges()) + ' edges.')
+            print('')
+            print('Shortest Path has cost ' + str(dist_sp))
+            print('REG-constrained Path has cost ' + str(dist) + ' with label: ' + word)
+            print('')
             if regex.evalWordP(word):
-                print 'The word has been accepted by the regular expression ' + string + '.'
+                print('The word has been accepted by the regular expression ' + string + '.')
             else:
-                print 'The word has NOT been accepted by the regular expression ' + string + '.'
-            print ''
-            print 'Times: '
-            print 'Time to read graph of NY from file: ' + str(times['read_graph']) + 's'
-            print 'Time to convert regular expression to NFA M(R): ' + str(times['regex_to_nfa']) + 's'
-            print 'Time to setup pointers for outgoing edges: ' + str(times['setup_pointers']) + 's'
-            print 'Time to calculate REG-constrained path: ' + str(times['calculate_path']) + 's'
-            print 'Time to calculate shortest path: ' + str(times['shortest_path']) + 's'
-            print 'Overall: ' + str(sum(times.values())) + 's'
+                print('The word has NOT been accepted by the regular expression ' + string + '.')
+            print('')
+            print('Times: ')
+            print('Time to read graph of NY from file: ' + str(times['read_graph']) + 's')
+            print('Time to convert regular expression to NFA M(R): ' + str(times['regex_to_nfa']) + 's')
+            print('Time to setup pointers for outgoing edges: ' + str(times['setup_pointers']) + 's')
+            print('Time to calculate REG-constrained path: ' + str(times['calculate_path']) + 's')
+            print('Time to calculate shortest path: ' + str(times['shortest_path']) + 's')
+            print('Overall: ' + str(sum(times.values())) + 's')
             if show_plot:
-                print 'Time to draw plot: ' + str(times['draw_plot']) + 's'
+                print('Time to draw plot: ' + str(times['draw_plot']) + 's')
 
     except nx.NetworkXNoPath:
-        print "No path between %s and %s." % (source, target)
+        print('No path between %s and %s.' % (source, target))
 
 
 elif choice == "f":
@@ -540,21 +543,21 @@ elif choice == "f":
 
     if user_input:
         while True:
-            m = raw_input('Enter the number of rows: ')
+            m = input('Enter the number of rows: ')
             try:
                 m = int(m)
             except ValueError:
                 continue
             break
         while True:
-            n = raw_input('Enter the number of columns: ')
+            n = input('Enter the number of columns: ')
             try:
                 n = int(n)
             except ValueError:
                 continue
             break
         while True:
-            i = raw_input('Enter the number of iterations: ')
+            i = input('Enter the number of iterations: ')
             try:
                 i = int(i)
             except ValueError:
@@ -566,7 +569,7 @@ elif choice == "f":
         regex = str2regexp(string)
         sigma = list(regex.setOfSymbols())
 
-        print 'Starting ' + string + ' at ' + time.strftime("%Y%m%d-%H%M%S")
+        print('Starting ' + string + ' at ' + time.strftime("%Y%m%d-%H%M%S"))
 
         for size in sizes:
             (G, dic) = GraphGenerator.random_weighted_labeled_grid(size, size, max_weight, sigma)
@@ -625,11 +628,11 @@ elif choice == "f":
                             "{0:.6f}".format(time1['product_nfa']) + ';' +
                             "{0:.6f}".format(time1['calculate_path']) + ';' +
                             "{0:.6f}".format(time_sp) + "\n")
-            print string + ' with size ' + str(G.number_of_nodes()) + ' done' + ' at ' + time.strftime("%Y%m%d-%H%M%S")
+            print(string + ' with size ' + str(G.number_of_nodes()) + ' done' + ' at ' + time.strftime("%Y%m%d-%H%M%S"))
 
             f.close()
-        print string + ' done' + ' at ' + time.strftime("%Y%m%d-%H%M%S")
-        print '----------------'
+        print(string + ' done' + ' at ' + time.strftime("%Y%m%d-%H%M%S"))
+        print('----------------')
 
 
 
@@ -702,16 +705,16 @@ elif choice == "g":
                 plt.show()
 
         if print_results:
-            print 'k Similar Path on NY'
-            print ''
-            print 'The graph has ' + str(G.number_of_nodes()) + ' nodes and ' + str(G.number_of_edges()) + ' edges.'
-            print ''
-            print 'Shortest Path has cost ' + str(dist)
-            print 'k Similar Path has cost ' + str(distk)
-            print 'They have ' +str(common_edges) + ' edges in common.'
+            print('k Similar Path on NY')
+            print('')
+            print('The graph has ' + str(G.number_of_nodes()) + ' nodes and ' + str(G.number_of_edges()) + ' edges.')
+            print('')
+            print('Shortest Path has cost ' + str(dist))
+            print('k Similar Path has cost ' + str(distk))
+            print('They have ' +str(common_edges) + ' edges in common.')
 
     except nx.NetworkXNoPath:
-        print "No path between %s and %s." % (source, target)
+        print('No path between %s and %s.' % (source, target))
 
 
 elif choice == "h":
@@ -727,14 +730,14 @@ elif choice == "h":
 
     if user_input:
         while True:
-            m = raw_input('Enter the number of rows: ')
+            m = input('Enter the number of rows: ')
             try:
                 m = int(m)
             except ValueError:
                 continue
             break
         while True:
-            n = raw_input('Enter the number of columns: ')
+            n = input('Enter the number of columns: ')
             try:
                 n = int(n)
             except ValueError:
@@ -771,12 +774,12 @@ elif choice == "h":
             break
 
     if print_results:
-        print 'CFG-ShP on NY'
-        print ''
-        print 'The graph has ' + str(G.number_of_nodes()) + ' nodes and ' + str(G.number_of_edges()) + ' edges.'
-        print ''
-        print 'Shortest Path has cost ' + str(dist_sp)
-        print 'CFG-constrained Path has cost ' + str(dist) #+ ' with label: ' + word
+        print('CFG-ShP on NY')
+        print('')
+        print('The graph has ' + str(G.number_of_nodes()) + ' nodes and ' + str(G.number_of_edges()) + ' edges.')
+        print('')
+        print('Shortest Path has cost ' + str(dist_sp))
+        print('CFG-constrained Path has cost ' + str(dist)) #+ ' with label: ' + word)
 
 
 
@@ -808,7 +811,7 @@ elif choice == 'nfa':
     M.addTransition(1, 'b', 2)
     M.addTransition(2, 'a', 2)
 
-    print M.reCG()
+    print(M.reCG())
 
 elif choice == 'av_times':
     # Variables
@@ -820,7 +823,7 @@ elif choice == 'av_times':
     max_weight = max_weight1
 
     for string in strings:
-        print 'Starting ' + string + ' at ' + time.strftime("%Y%m%d-%H%M%S")
+        print('Starting ' + string + ' at ' + time.strftime("%Y%m%d-%H%M%S"))
 
         regex = str2regexp(string)
         sigma = list(regex.setOfSymbols())
@@ -835,7 +838,7 @@ elif choice == 'av_times':
             for k in range(i):
 
                 if (k+1) % 10 == 0:
-                    print 'Iteration ' + str(k+1)
+                    print('Iteration ' + str(k+1))
 
                 l = 0
                 while True:
@@ -896,12 +899,12 @@ elif choice == 'av_times':
                     "{0:.6f}".format(av_time['product_nfa']) + ';' +
                     "{0:.6f}".format(av_time['calculate_path']) + "\n")
 
-            print string + ' with size ' + str(G.number_of_nodes()) + ' done' + ' at ' + time.strftime("%Y%m%d-%H%M%S")
+            print(string + ' with size ' + str(G.number_of_nodes()) + ' done' + ' at ' + time.strftime("%Y%m%d-%H%M%S"))
 
             f.close()
 
-        print string + ' done' + ' at ' + time.strftime("%Y%m%d-%H%M%S")
-        print '----------------'
+        print(string + ' done' + ' at ' + time.strftime("%Y%m%d-%H%M%S"))
+        print('----------------')
 
 
 elif choice == 'av_times_ny':
@@ -928,7 +931,7 @@ elif choice == 'av_times_ny':
         (G, dic) = GraphHelper.convert_node_labels_to_integers(G, dic)
 
     for string in strings:
-        print 'Starting ' + string + ' at ' + time.strftime("%Y%m%d-%H%M%S")
+        print('Starting ' + string + ' at ' + time.strftime("%Y%m%d-%H%M%S"))
 
         regex = str2regexp(string)
         sigma = list(regex.setOfSymbols())
@@ -957,7 +960,7 @@ elif choice == 'av_times_ny':
 
         l = 0
         for k in range(i):
-            print 'Starting Iteration ' + str(k + 1) + ' at ' + time.strftime("%Y%m%d-%H%M%S")
+            print('Starting Iteration ' + str(k + 1) + ' at ' + time.strftime("%Y%m%d-%H%M%S"))
             while True:
                 if l >= 25:
                     G = GraphGenerator.random_label(G, sigma)
@@ -1000,8 +1003,8 @@ elif choice == 'av_times_ny':
                 "{0:.6f}".format(sum(dists_sp) / float(i)) + ';' +                "{0:.6f}".format(sum(num_nodes_sp) / float(i)) + "\n")
         f.close()
 
-        print string + ' done' + ' at ' + time.strftime("%Y%m%d-%H%M%S")
-        print '----------------'
+        print(string + ' done' + ' at ' + time.strftime("%Y%m%d-%H%M%S"))
+        print('----------------')
 
 
 elif choice == 'av_times_ny_ksim':
@@ -1043,7 +1046,7 @@ elif choice == 'av_times_ny_ksim':
     f.write('k;Total Time;Time KSimP;Dist KSimP;Nodes KSimP;Time ShP;Dist ShP;Nodes ShP\n')
 
     for k in ks:
-        print 'Starting k = ' + str(k) + ' at ' + time.strftime("%Y%m%d-%H%M%S")
+        print('Starting k = ' + str(k) + ' at ' + time.strftime("%Y%m%d-%H%M%S"))
 
         times = dict()
         num_nodes = []
@@ -1101,8 +1104,8 @@ elif choice == 'av_times_ny_ksim':
                 "{0:.6f}".format(sum(num_nodes) / float(i))+ "\n")
         f.close()
 
-        print 'k = ' + str(k) + ' done' + ' at ' + time.strftime("%Y%m%d-%H%M%S")
-        print '----------------------'
+        print('k = ' + str(k) + ' done' + ' at ' + time.strftime("%Y%m%d-%H%M%S"))
+        print('----------------------')
 
 
 
@@ -1117,7 +1120,7 @@ elif choice == 'av_times_ksim':
         (G, dic) = GraphGenerator.random_weighted_labeled_grid(n, n, max_weight)
         (G, dic) = GraphHelper.convert_node_labels_to_integers(G, dic)
 
-        print 'Starting size ' + str(G.number_of_nodes()) + ' at ' + time.strftime("%Y%m%d-%H%M%S")
+        print('Starting size ' + str(G.number_of_nodes()) + ' at ' + time.strftime("%Y%m%d-%H%M%S"))
 
         dir = "Statistics"
         if not os.path.exists(dir):
@@ -1136,7 +1139,7 @@ elif choice == 'av_times_ksim':
         f.write('k;Total Time;Time KSimP;Dist KSimP;Nodes KSimP;Time ShP;Dist ShP;Nodes ShP\n')
 
         for k in ks:
-            print 'Starting k = ' + str(k) + ' at ' + time.strftime("%Y%m%d-%H%M%S")
+            print('Starting k = ' + str(k) + ' at ' + time.strftime("%Y%m%d-%H%M%S"))
 
             times = dict()
             num_nodes = []
@@ -1185,8 +1188,8 @@ elif choice == 'av_times_ksim':
                     "{0:.6f}".format(sum(num_nodes) / float(i))+ "\n")
         f.close()
 
-        print 'Size ' + str(G.number_of_nodes()) + ' done' + ' at ' + time.strftime("%Y%m%d-%H%M%S")
-        print '----------------'
+        print('Size ' + str(G.number_of_nodes()) + ' done' + ' at ' + time.strftime("%Y%m%d-%H%M%S"))
+        print('----------------')
 
 
 elif choice == 'av_times_cfg':
@@ -1226,7 +1229,7 @@ elif choice == 'av_times_cfg':
     f.write('Time CFG-ShP\n')
 
     for k in range(i):
-        print 'Starting Iteration ' + str(k + 1) + ' at ' + time.strftime("%Y%m%d-%H%M%S")
+        print('Starting Iteration ' + str(k + 1) + ' at ' + time.strftime("%Y%m%d-%H%M%S"))
 
         (G, dic) = GraphGenerator.random_weighted_labeled_grid(m, n, max_weight, list(terminals))
         (G, dic) = GraphHelper.convert_node_labels_to_integers(G, dic)
@@ -1259,7 +1262,7 @@ elif choice == 'av_times_sp':
     f.write('Time ShP\n')
 
     for k in range(i):
-        print 'Starting Iteration ' + str(k + 1) + ' at ' + time.strftime("%Y%m%d-%H%M%S")
+        print('Starting Iteration ' + str(k + 1) + ' at ' + time.strftime("%Y%m%d-%H%M%S"))
 
         (G, dic) = GraphGenerator.random_weighted_labeled_grid(m, n, max_weight)
         (G, dic) = GraphHelper.convert_node_labels_to_integers(G, dic)
