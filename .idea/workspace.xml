@@ -1,13 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="695e7d8c-31f4-4328-8cc6-5f96d2c9c839" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/FormalLanguageConstrainedPathProblems.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/FormalLanguageConstrainedPathProblems.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="695e7d8c-31f4-4328-8cc6-5f96d2c9c839" name="Default" comment="Updated main.py to Python 3">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
     <ignored path="FormalLanguageConstrainedPathProblems.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -418,6 +413,14 @@
       <option name="presentableId" value="Default" />
       <updated>1464371888512</updated>
     </task>
+    <task id="LOCAL-00001" summary="Updated main.py to Python 3">
+      <created>1550396253870</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1550396253871</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -500,6 +503,10 @@
     <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
       <collection />
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Updated main.py to Python 3" />
+    <option name="LAST_COMMIT_MESSAGE" value="Updated main.py to Python 3" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
