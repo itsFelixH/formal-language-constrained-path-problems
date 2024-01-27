@@ -8,7 +8,7 @@ class GrammarHelper:
         word : list (list of terminal symbols)
 
         Returns:
-         : bool (whether word is derivable)"""
+        bool (whether word is derivable)"""
 
         length = len(word)
 
