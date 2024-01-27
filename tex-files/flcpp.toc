@@ -1,0 +1,42 @@
+\select@language {english}
+\contentsline {section}{\numberline {1}Introduction}{3}
+\contentsline {subsection}{\numberline {1.1}Related Work}{4}
+\contentsline {section}{\numberline {2}Foundation}{5}
+\contentsline {subsection}{\numberline {2.1}Problem Statement}{5}
+\contentsline {subsection}{\numberline {2.2}Applications}{6}
+\contentsline {section}{\numberline {3}Basic Definitions}{8}
+\contentsline {subsection}{\numberline {3.1}Formal Languages}{8}
+\contentsline {subsection}{\numberline {3.2}Graph Theory}{10}
+\contentsline {section}{\numberline {4}Shortest Paths in Unlabeled Graphs}{12}
+\contentsline {subsection}{\numberline {4.1}Shortest Paths in Directed Acyclic Graphs}{12}
+\contentsline {subsection}{\numberline {4.2}Shortest Paths in Series-Parallel Graphs}{13}
+\contentsline {section}{\numberline {5}Label Constrained Shortest Paths}{18}
+\contentsline {subsection}{\numberline {5.1}Preliminaries}{18}
+\contentsline {subsection}{\numberline {5.2}Example}{19}
+\contentsline {subsection}{\numberline {5.3}Special Languages}{20}
+\contentsline {subsection}{\numberline {5.4}Regular Languages}{21}
+\contentsline {subsection}{\numberline {5.5}Speed-up Techniques}{23}
+\contentsline {subsection}{\numberline {5.6}Context-free Languages}{23}
+\contentsline {section}{\numberline {6}Label Constrained Simple Paths}{26}
+\contentsline {subsection}{\numberline {6.1}Finite Languages}{26}
+\contentsline {subsection}{\numberline {6.2}Hardness}{26}
+\contentsline {subsection}{\numberline {6.3}Acyclic Graphs}{27}
+\contentsline {subsection}{\numberline {6.4}Algorithm}{28}
+\contentsline {section}{\numberline {7}Experimental Study}{32}
+\contentsline {subsection}{\numberline {7.1}Setup}{32}
+\contentsline {subsection}{\numberline {7.2}Algorithms for REG-ShP}{32}
+\contentsline {subsection}{\numberline {7.3}k-Similar Paths}{35}
+\contentsline {subsection}{\numberline {7.4}Algorithm for CFG-ShP}{36}
+\contentsline {subsection}{\numberline {7.5}Real Road Networks}{37}
+\contentsline {section}{\numberline {8}Extensions}{39}
+\contentsline {subsection}{\numberline {8.1}Node Labels and Trip Chaining}{39}
+\contentsline {subsection}{\numberline {8.2}Left-turn and U-turn Penalties}{39}
+\contentsline {subsection}{\numberline {8.3}Time-dependent Networks}{41}
+\contentsline {subsection}{\numberline {8.4}Multicriteria Shortest Paths}{41}
+\contentsline {section}{\numberline {9}Conclusion}{42}
+\contentsline {section}{Appendix \numberline {A}Source Code}{48}
+\contentsline {section}{Appendix \numberline {B}Tables}{56}
+\contentsline {subsection}{\numberline {B.1}Tables for REG-ShP}{56}
+\contentsline {subsection}{\numberline {B.2}Tables for k-similar Path}{61}
+\contentsline {subsection}{\numberline {B.3}Tables for CFG-ShP}{65}
+\contentsline {subsection}{\numberline {B.4}Tables for NY-Graph}{66}

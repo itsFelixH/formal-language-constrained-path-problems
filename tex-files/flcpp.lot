@@ -1,0 +1,9 @@
+\select@language {english}
+\contentsline {table}{\numberline {1}{\ignorespaces REG-ShP with product NFA, $R = (a|ab)^*$\relax }}{33}
+\contentsline {table}{\numberline {2}{\ignorespaces REG-ShP with implicit representation, $R = (a|ab)^*$\relax }}{33}
+\contentsline {table}{\numberline {3}{\ignorespaces REG-ShP with product NFA, $R = a^*((b|cd)^*|e)$\relax }}{34}
+\contentsline {table}{\numberline {4}{\ignorespaces REG-ShP with implicit representation, $R = a^*((b|cd)^*|e)$\relax }}{34}
+\contentsline {table}{\numberline {5}{\ignorespaces K-similar Path on graph with 100 nodes\relax }}{35}
+\contentsline {table}{\numberline {6}{\ignorespaces K-similar Path on graph with 10000 nodes\relax }}{36}
+\contentsline {table}{\numberline {7}{\ignorespaces CFG-ShP with $L = \{x^nzy^n:n\in \mathbb {N}\}$\relax }}{36}
+\contentsline {table}{\numberline {8}{\ignorespaces REG-ShP on NY road network\relax }}{37}

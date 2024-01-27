@@ -1,0 +1,13 @@
+\select@language {english}
+\contentsline {figure}{\numberline {1}{\ignorespaces Label constrained shortest paths are not necessary simple\relax }}{6}
+\contentsline {figure}{\numberline {2}{\ignorespaces NFA $M(L)$ for the language $L$\relax }}{9}
+\contentsline {figure}{\numberline {3}{\ignorespaces A graph and its tree-decomposition\relax }}{11}
+\contentsline {figure}{\numberline {4}{\ignorespaces A directed acyclic graph\relax }}{12}
+\contentsline {figure}{\numberline {5}{\ignorespaces A series-parallel graph\relax }}{14}
+\contentsline {figure}{\numberline {6}{\ignorespaces The decomposition tree of $G$\relax }}{15}
+\contentsline {figure}{\numberline {7}{\ignorespaces A graph $G$ and the NFA $M(G)$\relax }}{18}
+\contentsline {figure}{\numberline {8}{\ignorespaces A small random grid graph\relax }}{19}
+\contentsline {figure}{\numberline {9}{\ignorespaces NFA $M(R)$, $R = (a|ab)^*$\relax }}{33}
+\contentsline {figure}{\numberline {10}{\ignorespaces NFA $M(R)$, $R = a^*((b|cd)^*|e)$\relax }}{34}
+\contentsline {figure}{\numberline {11}{\ignorespaces Representation of the New York Road Network\relax }}{37}
+\contentsline {figure}{\numberline {12}{\ignorespaces Transforming node labels to edge labels\relax }}{40}
